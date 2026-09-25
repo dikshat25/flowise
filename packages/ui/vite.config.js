@@ -1,51 +1,19 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
-import dotenv from 'dotenv'
+import path from 'path'
 
-exp => {
-    let proxy = undefined
-     {
-        .parsed
-        const serverHost = serverEnv?.['HOST'] ?? 'localhost'
-        
-         &&  {
-            proxy = {
-                '^/ap.*': {
-                    target: `http://${serverHost}:${serverPort}`,
-                    changeOrigin: true
-                }
-            }
+export default defineConfig({
+    plugins: [react()],
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src')
         }
-    }
-
-    
-    return {
-        plug],
-        resolve: {
-            alias: {
-                '@': ,
-                '@,
-                '@,
-                '@,
-                '@,
-                '@,
-                '@u,
-                '@u,
-                '@u,
-                '@leze,
-                '@leze
-            }
-        },
-        ,
-        build: {
-            outDir: './build'
-        },
-        server: {
-            open: true,
-            proxy,
-            port: process.env.VITE_PORT ?? 8080,
-            host: process.env.VITE_HOST
-        }
+    },
+    server: {
+        port: 8080
+    },
+    build: {
+        outDir: 'build',
+        emptyOutDir: true
     }
 })
