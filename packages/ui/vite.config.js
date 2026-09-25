@@ -3,41 +3,28 @@ import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 import dotenv from 'dotenv'
 
-exp => {
+export default defineConfig(({ mode }) => {
     let proxy = undefined
-     {
-        .parsed
-        const serverHost = serverEnv?.['HOST'] ?? 'localhost'
-        
-         &&  {
-            proxy = {
-                '^/ap.*': {
-                    target: `http://${serverHost}:${serverPort}`,
-                    changeOrigin: true
-                }
+    const serverEnv = dotenv.config({ path: resolve(__dirname, '../../.env') }).parsed
+    const serverHost = serverEnv?.['HOST'] ?? 'localhost'
+    const serverPort = serverEnv?.['PORT'] ?? 3000
+
+    if (serverPort) {
+        proxy = {
+            '^/api/.*': {
+                target: `http://${serverHost}:${serverPort}`,
+                changeOrigin: true
             }
         }
     }
 
-    
     return {
-        plug],
+        plugins: [react()],
         resolve: {
             alias: {
-                '@': ,
-                '@,
-                '@,
-                '@,
-                '@,
-                '@,
-                '@u,
-                '@u,
-                '@u,
-                '@leze,
-                '@leze
+                '@': resolve(__dirname, './src')
             }
         },
-        ,
         build: {
             outDir: './build'
         },
