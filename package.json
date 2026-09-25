@@ -62,8 +62,19 @@
     },
     "pnpm": {
         "onlyBuiltDependencies": [
+            "@parcel/watcher",
+            "@swc/core",
+            "better-sqlite3",
+            "canvas",
+            "core-js",
+            "core-js-pure",
+            "esbuild",
             "faiss-node",
-            "sqlite3"
+            "msgpackr-extract",
+            "puppeteer",
+            "sharp",
+            "sqlite3",
+            "ssh2"
         ],
         "overrides": {
             "axios": "1.10.0",
